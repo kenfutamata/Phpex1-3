@@ -23,6 +23,7 @@
             $startingNumber = $_POST["startingNumber"]; 
             $endingNumber = $_POST["endingNumber"]; 
             if($startingNumber >= $endingNumber){
+                //display assending 
                 echo"Starting Number: ",$startingNumber, " <br>"; 
                 echo"Ending Number: ",$endingNumber, "<br>"; 
                 echo"Odd Numbers: ",reverseOdd($startingNumber, $endingNumber),"<br>";
@@ -32,6 +33,7 @@
                 echo"List of prime numbers: ",reversePrimeNumbers($startingNumber, $endingNumber),"<br>"; 
             }
             else{
+                //display descending 
                 echo"Starting Number: ",$startingNumber, " <br>"; 
                 echo"Ending Number: ",$endingNumber, "<br>"; 
                 echo"Odd Numbers: ",oddNumbers($startingNumber, $endingNumber), "<br>";
@@ -43,33 +45,36 @@
         }
 
             function oddNumbers($startingNumber, $endingNumber){
+                //form numbers from starting to ending 
                 for($i = $startingNumber; $i <=$endingNumber; $i++){
+                    //select odd numbers
                    if($i % 2 != 0) 
+                   //display odd numbers
                         echo $i," ";
                 } 
             }
-
+            //procedure same with even numbers
             function evenNumbers($startingNumber, $endingNumber){
                 for($i = $startingNumber; $i <=$endingNumber; $i++){
                     if($i % 2 == 0)
                     echo $i," ";  
                 }  
             }
-
+            //displays divisible by 3 numbers
             function divisibleBy3Numbers($startingNumber, $endingNumber){
                 for($i = $startingNumber; $i <=$endingNumber; $i++){
                     if($i % 3 == 0)
                         echo $i," "; 
                 } 
             }
-
+            //displays divisible by 5 numbers
             function divisibleBy5Numbers($startingNumber, $endingNumber){
                 for($i = $startingNumber; $i <=$endingNumber; $i++){
                     if($i % 5 == 0)
                         echo $i," "; 
                 } 
             }
-
+            //displays prime numbers 
             function primeNumbers($startingNumber, $endingNumber){
                 if($startingNumber < 2){
                     $startingNumber = 2; 
@@ -88,7 +93,8 @@
                 }
                
             }
-            $reverseodd = [];
+            
+            //displays functions with reverse method
             function reverseOdd($startingNumber, $endingNumber){
                 for($i = $startingNumber; $i >= $endingNumber; $i--){
                     if($i % 2 != 0)
@@ -135,17 +141,6 @@
                     $startingNumber = $startingNumber-1; 
                 }
             }
-        /*function oddNumbers($startingNumber, $endingNumber){
-            for($i = $startingNumber; $i <=$endingNumber; $i++){
-                $oddNumbers[$i] = " " .$i; 
-            }
-            return $oddNumbers;
-        }*/
-       
-        /*foreach($key as $odd){
-            echo $key;
-        }*/
-
     ?>
 </body>
 </html>
