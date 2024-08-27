@@ -19,30 +19,39 @@
     <?php
         $startingNumber = 0; 
         $endingNumber = 0; 
+        try{
         if(isset($_POST["display"])){
-            $startingNumber = $_POST["startingNumber"]; 
-            $endingNumber = $_POST["endingNumber"]; 
-            if($startingNumber >= $endingNumber){
-                //display assending 
-                echo"Starting Number: ",$startingNumber, " <br>"; 
-                echo"Ending Number: ",$endingNumber, "<br>"; 
-                echo"Odd Numbers: ",reverseOdd($startingNumber, $endingNumber),"<br>";
-                echo"Even Numbers: ",reverseEven($startingNumber, $endingNumber),"<br>";
-                echo"Divisible by 3 Numbers: ",reverseDivisibleBy3($startingNumber, $endingNumber),"<br>"; 
-                echo"Divisible by 5 Numbers:",reverseDivisibleBy5($startingNumber, $endingNumber),"<br>";
-                echo"List of prime numbers: ",reversePrimeNumbers($startingNumber, $endingNumber),"<br>"; 
-            }
-            else{
-                //display descending 
-                echo"Starting Number: ",$startingNumber, " <br>"; 
-                echo"Ending Number: ",$endingNumber, "<br>"; 
-                echo"Odd Numbers: ",oddNumbers($startingNumber, $endingNumber), "<br>";
-                echo"Even Numbers: ",evenNumbers($startingNumber, $endingNumber),"<br>";
-                echo"Divisible by 3 Numbers: ",divisibleBy3Numbers($startingNumber, $endingNumber),"<br>"; 
-                echo"Divisible by 5 Numbers:",divisibleBy5Numbers($startingNumber, $endingNumber),"<br>";
-                echo"List of prime numbers: ",primeNumbers($startingNumber, $endingNumber),"<br>"; 
-            }
+                $startingNumber = $_POST["startingNumber"]; 
+                $endingNumber = $_POST["endingNumber"];
+                    $startingNumber = (int)$startingNumber; 
+                    $endingNumber = (int)$endingNumber; 
+                    if($startingNumber >= $endingNumber){
+                        //display assending 
+                        echo"Starting Number: ",$startingNumber, " <br>"; 
+                        echo"Ending Number: ",$endingNumber, "<br>"; 
+                        echo"Odd Numbers: ",reverseOdd($startingNumber, $endingNumber),"<br>";
+                        echo"Even Numbers: ",reverseEven($startingNumber, $endingNumber),"<br>";
+                        echo"Divisible by 3 Numbers: ",reverseDivisibleBy3($startingNumber, $endingNumber),"<br>"; 
+                        echo"Divisible by 5 Numbers:",reverseDivisibleBy5($startingNumber, $endingNumber),"<br>";
+                        echo"List of prime numbers: ",reversePrimeNumbers($startingNumber, $endingNumber),"<br>"; 
+                    }
+                    else{
+                        //display descending 
+                        echo"Starting Number: ",$startingNumber, " <br>"; 
+                        echo"Ending Number: ",$endingNumber, "<br>"; 
+                        echo"Odd Numbers: ",oddNumbers($startingNumber, $endingNumber), "<br>";
+                        echo"Even Numbers: ",evenNumbers($startingNumber, $endingNumber),"<br>";
+                        echo"Divisible by 3 Numbers: ",divisibleBy3Numbers($startingNumber, $endingNumber),"<br>"; 
+                        echo"Divisible by 5 Numbers:",divisibleBy5Numbers($startingNumber, $endingNumber),"<br>";
+                        echo"List of prime numbers: ",primeNumbers($startingNumber, $endingNumber),"<br>"; 
+                    }
+                } else{
+                    echo"please input integer numbers only";  
+                }
         }
+    catch(Exception){
+    echo"Please input integers only";
+    }
 
             function oddNumbers($startingNumber, $endingNumber){
                 //form numbers from starting to ending 
@@ -106,21 +115,21 @@
                 for($i = $startingNumber; $i >= $endingNumber; $i--){
                     if($i % 2 == 0)
                     echo $i." "; 
-                    }
+                }
             }
             
             function reverseDivisibleBy3($startingNumber, $endingNumber){
                 for($i = $startingNumber; $i >= $endingNumber; $i--){
                     if($i % 3 == 0)
                     echo $i." "; 
-                    }
+                }
             }
 
             function reverseDivisibleBy5($startingNumber, $endingNumber){
                 for($i = $startingNumber; $i >= $endingNumber; $i--){
                     if($i % 5 == 0)
                     echo $i." "; 
-                    }
+                }
             }
             
 
